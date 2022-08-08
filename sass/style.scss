@@ -1,5 +1,8 @@
 @forward "./reset.scss";
 
+$bp-tablet: 37.5em; // 600px
+$bp-desktop: 62.5em; // 1000px
+
 :root {
   // Colors
 
@@ -22,6 +25,7 @@
   --fs-800: 3.5rem; // 56px;
   --fs-700: 2.5rem; // 40px;
   --fs-600: 2rem; // 32px;
+  --fs-500: 1.5rem; // 24px;
   --fs-400: 1.125rem; // 18px;
   --fs-300: 1rem; // 16px;
 
@@ -35,6 +39,10 @@
 
   --max-width: 69.375rem; // 1110px
   --spacer: 1rem;
+
+  --block-padding: 1.5rem;
+  --block-gap: 1.5rem;
+  --block-radius: 0.5rem;
 }
 
 body {
@@ -71,7 +79,7 @@ h3,
   margin-top: var(--flow-spacer, var(--spacer));
 }
 
-// Components
+// General Components
 
 .button {
   color: var(--clr-neutral-200);
@@ -96,19 +104,47 @@ h3,
   }
 }
 
+// Specific Components
+
 .blocks {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-template-areas: "gd gd ui ap ph ph" "gd gd il il mg mg";
-  height: 22.75rem;
-  gap: 1.5rem;
+  gap: var(--block-gap);
+  font-size: var(--fs-500);
+  font-weight: var(--fw-400);
+  color: var(--clr-neutral-200);
+
+  // mobile
+  min-height: 72.75rem;
+  grid-template-areas: "gd gd" "gd gd" "ui ap" "il il" "ph ph" "mg mg";
+
+  // tablet
+  @media (min-width: $bp-tablet) {
+    min-height: 35.625rem;
+    grid-template-areas: "gd gd ui ap" "gd gd il il" "ph ph mg mg";
+  }
+
+  // desktop
+  @media (min-width: $bp-desktop) {
+    min-height: 22.75rem;
+    grid-template-areas: "gd gd ui ap ph ph" "gd gd il il mg mg";
+  }
 }
 
 .block {
-  color: var(--clr-neutral-200);
-  border-radius: 0.5rem;
-  padding: 1.5rem;
+  border-radius: var(--block-radius);
+  position: relative;
+
+  span {
+    position: absolute;
+    left: var(--block-padding);
+    bottom: var(--block-padding);
+  }
+
+  img {
+    position: absolute;
+    top: var(--block-padding);
+    right: var(--block-padding);
+  }
 }
 
 .graphic-design {
