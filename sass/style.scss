@@ -22,11 +22,11 @@ $bp-desktop: 62.5em; // 1000px
 
   --ff-default: "Plus Jakarta Sans", sans-serif;
 
-  --fs-800: 3.5rem; // 56px;
+  --fs-800: clamp(2.25rem, 0.375rem + 5vw, 3.5rem); // 36px 56px;
   --fs-700: 2.5rem; // 40px;
   --fs-600: 2rem; // 32px;
   --fs-500: 1.5rem; // 24px;
-  --fs-400: 1.125rem; // 18px;
+  --fs-400: clamp(1rem, 0.8125rem + 0.5vw, 1.125rem); // 16px 18px;
   --fs-300: 1rem; // 16px;
 
   --lh-800: 4.375rem; // 70px;
@@ -38,7 +38,8 @@ $bp-desktop: 62.5em; // 1000px
   --fw-400: 400;
 
   --max-width: 69.375rem; // 1110px
-  --spacer: 1rem;
+  --page-padding: 1rem;
+  --spacer: 5rem;
 
   --block-padding: 1.5rem;
   --block-gap: 1.5rem;
@@ -61,11 +62,30 @@ h2,
 h3,
 .h3 {
   font-weight: var(--fw-700);
+  color: var(--clr-neutral-600);
+}
+
+h1,
+.h1 {
+  font-size: var(--fs-800);
+  line-height: 1.1;
+}
+
+h2,
+.h2 {
+  font-size: var(--fs-700);
+  line-height: var(--lh-700);
+}
+
+h3,
+.h3 {
+  font-size: var(--fs-600);
+  line-height: var(--lh-600);
 }
 
 // Utilities
 .container {
-  width: min(var(--max-width), 100% - (max(var(--spacer), 5vw) * 2));
+  width: min(var(--max-width), 100% - (max(var(--page-padding), 5vw) * 2));
   margin-inline: auto;
 }
 
@@ -105,6 +125,22 @@ h3,
 }
 
 // Specific Components
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding-block: 1rem;
+}
+
+.hero {
+  --max-width: 47rem;
+  text-align: center;
+
+  p {
+    margin-top: 1.25rem;
+    margin-top: clamp(1rem, 0.25rem + 2vw, 1.5rem);
+  }
+}
 
 .blocks {
   display: grid;
