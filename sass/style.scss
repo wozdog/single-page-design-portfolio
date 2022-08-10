@@ -126,7 +126,8 @@ h3,
 
 // Specific Components
 
-.header {
+.header,
+.footer {
   display: flex;
   justify-content: space-between;
   padding-block: 1rem;
@@ -176,38 +177,71 @@ h3,
     align-self: start;
     padding: var(--block-padding) var(--block-padding) 0 0;
   }
+
+  .block {
+    border-radius: var(--block-radius);
+  }
+
+  .graphic-design {
+    grid-area: gd;
+    background-color: var(--clr-primary-400);
+  }
+
+  .ui-ux {
+    grid-area: ui;
+    background-color: var(--clr-secondary-400);
+  }
+
+  .apps {
+    grid-area: ap;
+    background-color: var(--clr-secondary-200);
+  }
+
+  .photography {
+    grid-area: ph;
+    background-color: var(--clr-primary-200);
+  }
+
+  .illustrations {
+    grid-area: il;
+    background-color: var(--clr-secondary-600);
+  }
+
+  .motion-graphics {
+    grid-area: mg;
+    background-color: var(--clr-primary-600);
+  }
 }
 
-.block {
-  border-radius: var(--block-radius);
+.intro {
+  .flow-content {
+    --flow-spacer: 2rem;
+  }
+  .split {
+    align-items: center;
+    gap: 7.8125rem;
+    @media (min-width: $bp-tablet) {
+      grid-auto-flow: column;
+    }
+  }
 }
 
-.graphic-design {
-  grid-area: gd;
-  background-color: var(--clr-primary-400);
-}
-
-.ui-ux {
-  grid-area: ui;
-  background-color: var(--clr-secondary-400);
-}
-
-.apps {
-  grid-area: ap;
-  background-color: var(--clr-secondary-200);
-}
-
-.photography {
-  grid-area: ph;
-  background-color: var(--clr-primary-200);
-}
-
-.illustrations {
-  grid-area: il;
-  background-color: var(--clr-secondary-600);
-}
-
-.motion-graphics {
-  grid-area: mg;
-  background-color: var(--clr-primary-600);
+.cta {
+  background-color: var(--clr-neutral-600);
+  border-radius: 1rem;
+  padding: 5rem 4rem;
+  h2,
+  p {
+    color: var(--clr-neutral-200);
+  }
+  .flow-content {
+    --flow-spacer: 2rem;
+  }
+  &.split {
+    place-items: center;
+    gap: 7.8125rem;
+    @media (min-width: $bp-tablet) {
+      grid-auto-flow: column;
+    }
+  }
 }
