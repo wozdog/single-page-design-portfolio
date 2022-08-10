@@ -85,7 +85,7 @@ h3,
 
 // Utilities
 .container {
-  width: min(var(--max-width), 100% - (max(var(--page-padding), 5vw) * 2));
+  width: min(var(--max-width), 100% - (var(--page-padding) * 2));
   margin-inline: auto;
 }
 
@@ -134,7 +134,8 @@ h3,
 }
 
 .hero {
-  --max-width: 47rem;
+  max-width: 47rem;
+  margin-inline: auto;
   text-align: center;
 
   p {
@@ -180,36 +181,54 @@ h3,
 
   .block {
     border-radius: var(--block-radius);
+
+    &.graphic-design {
+      background-color: var(--clr-primary-400);
+    }
+
+    &.ui-ux {
+      background-color: var(--clr-secondary-400);
+    }
+
+    &.apps {
+      background-color: var(--clr-secondary-200);
+    }
+
+    &.photography {
+      background-color: var(--clr-primary-200);
+    }
+
+    &.illustrations {
+      background-color: var(--clr-secondary-600);
+    }
+
+    &.motion-graphics {
+      background-color: var(--clr-primary-600);
+    }
   }
 
   .graphic-design {
     grid-area: gd;
-    background-color: var(--clr-primary-400);
   }
 
   .ui-ux {
     grid-area: ui;
-    background-color: var(--clr-secondary-400);
   }
 
   .apps {
     grid-area: ap;
-    background-color: var(--clr-secondary-200);
   }
 
   .photography {
     grid-area: ph;
-    background-color: var(--clr-primary-200);
   }
 
   .illustrations {
     grid-area: il;
-    background-color: var(--clr-secondary-600);
   }
 
   .motion-graphics {
     grid-area: mg;
-    background-color: var(--clr-primary-600);
   }
 }
 
