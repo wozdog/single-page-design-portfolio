@@ -128,45 +128,49 @@ h3,
     min-height: 22.75rem;
     grid-template-areas: "gd gd ui ap ph ph" "gd gd il il mg mg";
   }
+
+  span {
+    justify-self: start;
+    align-self: end;
+    padding: 0 0 var(--block-padding) var(--block-padding);
+  }
+
+  img {
+    justify-self: end;
+    align-self: start;
+    padding: var(--block-padding) var(--block-padding) 0 0;
+  }
 }
 
 .block {
   border-radius: var(--block-radius);
-  position: relative;
-
-  span {
-    position: absolute;
-    left: var(--block-padding);
-    bottom: var(--block-padding);
-  }
-
-  img {
-    position: absolute;
-    top: var(--block-padding);
-    right: var(--block-padding);
-  }
 }
 
 .graphic-design {
   grid-area: gd;
   background-color: var(--clr-primary-400);
 }
+
 .ui-ux {
   grid-area: ui;
   background-color: var(--clr-secondary-400);
 }
+
 .apps {
   grid-area: ap;
   background-color: var(--clr-secondary-200);
 }
+
 .photography {
   grid-area: ph;
   background-color: var(--clr-primary-200);
 }
+
 .illustrations {
   grid-area: il;
   background-color: var(--clr-secondary-600);
 }
+
 .motion-graphics {
   grid-area: mg;
   background-color: var(--clr-primary-600);
